@@ -1,0 +1,18 @@
+# Render Blueprint — one-click deploy of the StockSage dashboard.
+# On render.com: New → Blueprint → connect this repo → Apply.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: stocksage-dashboard
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app/dashboard.py"
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      # Pin Python so the pinned torch/pandas wheels resolve (they lack 3.13 wheels).
+      - key: PYTHON_VERSION
+        value: "3.12.4"
