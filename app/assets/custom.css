@@ -1,0 +1,107 @@
+/* StockSage dashboard — dark theme
+   Loaded automatically by Dash from app/assets/. */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --navy: #050B18;
+  --panel: #0A1628;
+  --panel-2: #0e1d33;
+  --cyan: #00D4FF;
+  --gold: #FFB547;
+  --green: #00FF88;
+  --ink: #E6F1FF;
+  --muted: #5b7088;
+  --line: #16263a;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 80% -10%, #0b1a30 0%, var(--navy) 55%) fixed;
+  color: var(--ink);
+}
+
+.app-shell { padding: 24px clamp(16px, 4vw, 48px) 48px; max-width: 1280px; }
+
+/* ── Control bar ─────────────────────────────────────────── */
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, rgba(0,212,255,0.06), rgba(10,22,40,0.6));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.brand { display: flex; align-items: center; gap: 8px; margin-right: auto; }
+.logo-mark { font-size: 26px; filter: drop-shadow(0 0 8px var(--cyan)); }
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 22px; letter-spacing: 0.5px; color: var(--ink);
+}
+
+.ctl { display: flex; flex-direction: column; gap: 4px; min-width: 150px; }
+.ctl-slider { min-width: 220px; }
+.ctl-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);
+}
+
+.ticker-dd .Select-control,
+.ticker-dd .is-focused:not(.is-open) > .Select-control { background: var(--panel-2); border-color: var(--line); }
+
+.run-btn {
+  background: var(--cyan); border: none; color: #022; font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.4px;
+  padding: 10px 22px; border-radius: 10px;
+  box-shadow: 0 0 18px rgba(0,212,255,0.45);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.run-btn:hover { transform: translateY(-2px); box-shadow: 0 0 26px rgba(0,212,255,0.7); background: var(--cyan); }
+
+/* ── Chart card ──────────────────────────────────────────── */
+#price-chart {
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--cyan);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+/* ── Metric cards ────────────────────────────────────────── */
+.metrics-row { margin-top: 18px; }
+.metric-card {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  height: 100%;
+}
+.metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted);
+}
+.metric-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px; font-weight: 600; color: var(--ink); margin-top: 6px;
+}
+
+.status-alert { margin-top: 16px; border-radius: 10px; }
+.footer-note {
+  margin-top: 28px; text-align: center; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+}
+
+/* Slider accents */
+.rc-slider-track { background-color: var(--cyan) !important; }
+.rc-slider-handle { border-color: var(--cyan) !important; background: var(--cyan) !important; }
+.rc-slider-dot-active { border-color: var(--cyan) !important; }
+.rc-slider-mark-text { color: var(--muted) !important; font-family: 'JetBrains Mono', monospace; }
+
+@media (max-width: 640px) {
+  .control-bar { gap: 14px; }
+  .brand { margin-right: 0; width: 100%; }
+}
